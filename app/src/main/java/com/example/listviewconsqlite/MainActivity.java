@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finishAffinity();
-                System.exit(0); // Cierra la aplicación
+                System.exit(0);
             }
         }).setNegativeButton("Cancelar", null);
         builder.show();

@@ -63,7 +63,7 @@ public class AlumnoAdapter extends RecyclerView.Adapter<AlumnoAdapter.AlumnoView
             textViewMatricula.setText(alumno.getMatricula());
             textViewCarrera.setText(alumno.getCarrera());
 
-            // Cargar imagen utilizando Glide
+
             if (alumno.getFoto() != null) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(alumno.getFoto(), 0, alumno.getFoto().length);
                 Glide.with(context)

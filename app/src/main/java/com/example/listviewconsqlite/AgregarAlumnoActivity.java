@@ -43,7 +43,7 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
         db = new DatabaseManager(this);
         imageView = findViewById(R.id.imageView);
 
-        // Verifica si se enviaron datos extras
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             alumnoId = extras.getInt("ALUMNO_ID");
@@ -62,7 +62,7 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
             etMatricula.setText(alumnoMatricula);
             etCarrera.setText(alumnoCarrera);
 
-            // Carga la imagen del alumno si está disponible
+
             if (alumnoFoto != null) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(alumnoFoto, 0, alumnoFoto.length);
                 imageView.setImageBitmap(bitmap);
@@ -82,17 +82,17 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
         String matricula = etMatricula.getText().toString();
         String carrera = etCarrera.getText().toString();
 
-        // Verifica que todos los campos estén completos
+
         if (nombre.isEmpty() || matricula.isEmpty() || carrera.isEmpty() || imageView.getDrawable() == null) {
             Toast.makeText(this, "Por favor, ingresa todos los datos requeridos", Toast.LENGTH_SHORT).show();
-            return; // Sale del método sin guardar el alumno
+            return;
         }
 
 
         byte[] foto = obtenerDatosImagen();
 
         if (alumnoId != 0) {
-            // Si hay un ID de alumno válido, se actualiza el alumno existente
+
             Alumno alumno = db.obtenerAlumnoPorId(alumnoId);
             alumno.setNombre(nombre);
             alumno.setMatricula(matricula);
@@ -159,7 +159,7 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
     }
 
     public void eliminarAlumno(View view) {
-        // Verifica si hay un ID de alumno válido
+
         if (alumnoId != 0) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Confirmación");
@@ -167,11 +167,11 @@ public class AgregarAlumnoActivity extends AppCompatActivity {
             builder.setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // Elimina el alumno de la base de datos
+                    // Eliminar al alumno dentro de la base de datos
                     db.eliminarAlumno(alumnoId);
                     Toast.makeText(AgregarAlumnoActivity.this, "Alumno eliminado correctamente", Toast.LENGTH_SHORT).show();
 
-                    // Regresar a la actividad principal
+
                     Intent intent = new Intent(AgregarAlumnoActivity.this, MainActivity.class);
                     startActivity(intent);
                 }

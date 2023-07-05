@@ -55,7 +55,7 @@ public class MostrarDatosActivity extends AppCompatActivity implements SearchVie
                             public void onItemClick(View view, int position) {
                                 Alumno selectedAlumno = listaAlumnos.get(position);
 
-                                // Abre la ventana de edición del alumno y pasa los datos del alumno seleccionado
+
                                 Intent intent = new Intent(MostrarDatosActivity.this, AgregarAlumnoActivity.class);
                                 intent.putExtra("ALUMNO_ID", selectedAlumno.getId());
                                 intent.putExtra("ALUMNO_NOMBRE", selectedAlumno.getNombre());
@@ -95,7 +95,7 @@ public class MostrarDatosActivity extends AppCompatActivity implements SearchVie
         List<Alumno> listaFiltrada = db.buscarAlumnos(newText);
         listaAlumnos.clear();
 
-        // Filtrar por nombre y matrícula
+        // Filtrar por nombre, matricula y carrera de acuerdo a los datos ingresados :D
         for (Alumno alumno : listaFiltrada) {
             if (alumno.getNombre().toLowerCase().contains(newText.toLowerCase()) ||
                     alumno.getMatricula().toLowerCase().contains(newText.toLowerCase()) ||

@@ -52,7 +52,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         values.put(COLUMN_FOTO, foto);
         long resultado = db.insert(TABLE_ALUMNO, null, values);
         if (resultado == -1) {
-            // Error al insertar
+
         }
         db.close();
     }

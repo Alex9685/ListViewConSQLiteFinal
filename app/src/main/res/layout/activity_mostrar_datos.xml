@@ -4,13 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Contenido principal -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Aquí colocas los elementos principales de tu interfaz -->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewAlumnos"
